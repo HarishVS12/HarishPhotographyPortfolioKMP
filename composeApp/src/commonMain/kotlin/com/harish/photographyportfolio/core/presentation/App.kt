@@ -22,12 +22,12 @@ import harishphotographyportfolio.composeapp.generated.resources.compose_multipl
 @Preview
 fun App() {
     MaterialTheme {
-        Text(
-            text = "HELLO GUYS!! WELCOME TO THE APP",
-            modifier = Modifier.fillMaxWidth(),
-            textAlign = TextAlign.Center,
-            style = MaterialTheme.typography.h3,
-            color = Color.Red
-        )
+//        Text(
+//            text = "HELLO GUYS!! WELCOME TO THE APP",
+//            modifier = Modifier.fillMaxWidth(),
+//            textAlign = TextAlign.Center,
+//            style = MaterialTheme.typography.h3,
+//            color = Color.Red
+//        )
     }
 }
