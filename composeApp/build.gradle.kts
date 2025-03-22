@@ -20,7 +20,7 @@ kotlin {
             jvmTarget.set(JvmTarget.JVM_11)
         }
     }
-    
+
     listOf(
         iosX64(),
         iosArm64(),
@@ -35,7 +35,7 @@ kotlin {
     room {
         schemaDirectory("$projectDir/schemas")
     }
-    
+
     @OptIn(ExperimentalWasmDsl::class)
     wasmJs {
         moduleName = "composeApp"
@@ -55,7 +55,7 @@ kotlin {
         }
         binaries.executable()
     }
-    
+
     sourceSets {
 
         jsMain.dependencies {
@@ -63,7 +63,7 @@ kotlin {
             implementation(libs.kotlinx.html.js)
             implementation(compose.html.core)
         }
-        
+
         androidMain.dependencies {
             implementation(compose.preview)
             implementation(libs.androidx.activity.compose)
@@ -105,7 +105,7 @@ kotlin {
             implementation(libs.sqlite.bundled)
         }
 
-        dependencies{
+        dependencies {
             ksp(libs.androidx.room.compiler)
         }
 
