@@ -6,11 +6,13 @@ import androidx.compose.foundation.lazy.LazyColumn
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
 import com.harish.photographyportfolio.home.presentation.HomeSection
+import org.koin.compose.viewmodel.koinViewModel
 
 @Composable
 fun MainScreenRoot(
     modifier: Modifier = Modifier,
     mainContentHeight: Int? = null,
+    viewModel: MainScreenViewModel = koinViewModel()
 ) {
     MainScreen(
         modifier,
