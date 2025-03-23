@@ -1,8 +1,8 @@
 package com.harish.photographyportfolio.core.presentation
 
+import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.lazy.LazyColumn
-import androidx.compose.material.Surface
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
 import com.harish.photographyportfolio.home.presentation.HomeScreenRoot
@@ -10,19 +10,21 @@ import com.harish.photographyportfolio.home.presentation.HomeScreenRoot
 @Composable
 fun MainScreenRoot(
     modifier: Modifier = Modifier,
+    mainContentHeight: Int? = null
 ) {
     MainScreen(
-        modifier
+        modifier,
+        mainContentHeight
     )
 
 }
 
 @Composable
-fun MainScreen(modifier: Modifier) {
-    Surface(modifier = Modifier.fillMaxSize()) {
+fun MainScreen(modifier: Modifier, mainContentHeight: Int?) {
+    Box(modifier = Modifier.fillMaxSize()) {
         LazyColumn(modifier = Modifier.fillMaxSize()) {
             item {
-                HomeScreenRoot(modifier)
+                HomeScreenRoot(modifier, mainContentHeight)
             }
         }
     }
