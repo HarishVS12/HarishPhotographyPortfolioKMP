@@ -1,8 +1,8 @@
 package com.harish.photographyportfolio.home.presentation
 
 import androidx.compose.foundation.layout.Box
-import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.height
+import androidx.compose.foundation.layout.width
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.unit.dp
@@ -11,13 +11,13 @@ import com.harish.photographyportfolio.home.presentation.components.HomePictureC
 
 
 @Composable
-fun HomeSection(modifier: Modifier = Modifier, mainContentHeight: Int?) {
+fun HomeSection(modifier: Modifier = Modifier, mainContentSize: Pair<Int, Int>?) {
     Box(
         modifier = Modifier
-            .fillMaxWidth()
-            .height(mainContentHeight?.dp!!)
+            .height(mainContentSize?.first?.dp!!)
+            .width(mainContentSize.second.dp)
     ) {
-        HomePictureCarousel(modifier, mainContentHeight)
+        HomePictureCarousel(modifier, mainContentSize)
         HomeHeader()
     }
 }

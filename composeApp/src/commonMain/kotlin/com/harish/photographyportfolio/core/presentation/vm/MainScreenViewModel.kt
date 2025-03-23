@@ -2,7 +2,7 @@ package com.harish.photographyportfolio.core.presentation.vm
 
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
-import com.harish.photographyportfolio.core.getViewPortHeight
+import com.harish.photographyportfolio.core.getViewPortSize
 import com.harish.photographyportfolio.core.presentation.state.MainScreenAction
 import com.harish.photographyportfolio.core.presentation.state.MainScreenState
 import kotlinx.coroutines.flow.MutableStateFlow
@@ -32,10 +32,10 @@ class MainScreenViewModel : ViewModel() {
     fun onAction(action: MainScreenAction) {
         when (action) {
             MainScreenAction.SetHomeItemHeight -> {
-                val height = getViewPortHeight()
+                val size = getViewPortSize()
                 _mainScreenState.update {
                     it.copy(
-                        homeItemHeight = height
+                        homeItemViewportSize = size
                     )
                 }
             }

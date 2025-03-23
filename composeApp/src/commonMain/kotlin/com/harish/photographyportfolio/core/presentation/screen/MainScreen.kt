@@ -20,17 +20,17 @@ fun MainScreenRoot(
 
     MainScreen(
         modifier,
-        mainScreenState.value.homeItemHeight
+        mainScreenState.value.homeItemViewportSize
     )
 
 }
 
 @Composable
-fun MainScreen(modifier: Modifier, mainContentHeight: Int?) {
+fun MainScreen(modifier: Modifier, mainContentSize: Pair<Int, Int>?) {
     Box(modifier = Modifier.fillMaxSize()) {
         LazyColumn(modifier = Modifier.fillMaxSize()) {
             item {
-                HomeSection(modifier, mainContentHeight)
+                HomeSection(modifier, mainContentSize)
             }
         }
     }
