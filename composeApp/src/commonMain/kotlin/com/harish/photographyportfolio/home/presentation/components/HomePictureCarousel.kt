@@ -42,6 +42,7 @@ fun HomePictureCarousel(
     val items = (1..5).map { "Item $it" }
     LazyRow(
         modifier = Modifier.wrapContentSize(),
+        state = lazyListState,
         flingBehavior = rememberSnapFlingBehavior(lazyListState = lazyListState),
     ) {
         items(items, key = { it }) {
