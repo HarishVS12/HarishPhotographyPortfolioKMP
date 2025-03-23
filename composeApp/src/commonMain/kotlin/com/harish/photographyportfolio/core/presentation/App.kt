@@ -4,20 +4,14 @@ import androidx.compose.material.MaterialTheme
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.remember
 import androidx.compose.ui.Modifier
-import com.harish.photographyportfolio.core.di.sharedModule
 import com.harish.photographyportfolio.core.getViewPortHeight
 import org.jetbrains.compose.ui.tooling.preview.Preview
-import org.koin.compose.KoinApplication
 
 @Composable
 @Preview
 fun App() {
-    KoinApplication(application = { modules(sharedModule) }) {
-
-        val mainContentHeight = remember { getViewPortHeight() }
-
-        MaterialTheme {
-            MainScreenRoot(Modifier, mainContentHeight)
-        }
+    val mainContentHeight = remember { getViewPortHeight() }
+    MaterialTheme {
+        MainScreenRoot(Modifier, mainContentHeight)
     }
 }
