@@ -1,4 +1,4 @@
-package com.harish.photographyportfolio.core.presentation.state
+package com.harish.photographyportfolio.main.presentation.state
 
 
 data class MainScreenState(

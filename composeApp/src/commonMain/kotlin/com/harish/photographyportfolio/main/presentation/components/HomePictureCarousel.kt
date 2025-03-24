@@ -1,4 +1,4 @@
-package com.harish.photographyportfolio.home.presentation.components
+package com.harish.photographyportfolio.main.presentation.components
 
 import androidx.compose.foundation.background
 import androidx.compose.foundation.gestures.snapping.rememberSnapFlingBehavior
@@ -21,7 +21,8 @@ import kotlinx.coroutines.delay
 @Composable
 fun HomePictureCarousel(
     modifier: Modifier = Modifier,
-    mainContentSize: Pair<Int, Int>?
+    mainContentSize: Pair<Int, Int>?,
+    homeCarouselList: List<String>
 ) {
     val lazyListState = rememberLazyListState()
 
@@ -39,15 +40,14 @@ fun HomePictureCarousel(
         }
     }
 
-    val items = (1..5).map { "Item $it" }
     LazyRow(
         modifier = Modifier.wrapContentSize(),
         state = lazyListState,
         flingBehavior = rememberSnapFlingBehavior(lazyListState = lazyListState),
     ) {
-        items(items, key = { it }) {
+        items(homeCarouselList, key = { it }) {
             AsyncImage(
-                model = "https://media-hosting.imagekit.io//6961d85521414229/1727775083170.jpeg?Expires=1837439823&Key-Pair-Id=K2ZIVPTIP2VGHC&Signature=KRcvx~0YdMDhIewzvjAtJH2LLkfqxXk2FxVwp5f1rYyyFsVjl885rPPkb4mB-ktcsc-iGo01idtnXYepV6CFCEUqYrgR~B4ZYo92mf8Y8N4SjkUMVv06u197MCd5aNXexPiN~nNKyX4myLxX65ksYuKsaqWtma93Y7ZkAf6Sw4PGHMpsvfKeLln3XcnS1wEkGVy2grmMj06xI6F6ODM4uOhY2yku04nOzbT5z8LI8cBG6sxM8Y6gZ-XCKXxOJ2eWJz2Rcg9636gRHrB9Fjq~8D8mETVBbcT36rPycUepzqEtB~5zd8ZQHN2tIcY-U7Qdew~7XRYVFpNwsWL7cstXPQ__",
+                model = it,
                 contentDescription = "image",
                 contentScale = ContentScale.FillBounds,
                 modifier = Modifier

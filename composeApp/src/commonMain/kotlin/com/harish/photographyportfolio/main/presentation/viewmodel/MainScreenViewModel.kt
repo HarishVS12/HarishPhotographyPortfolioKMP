@@ -1,10 +1,11 @@
-package com.harish.photographyportfolio.core.presentation.vm
+package com.harish.photographyportfolio.main.presentation.viewmodel
 
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
 import com.harish.photographyportfolio.core.getViewPortSize
-import com.harish.photographyportfolio.core.presentation.state.MainScreenAction
-import com.harish.photographyportfolio.core.presentation.state.MainScreenState
+import com.harish.photographyportfolio.main.domain.MainRepository
+import com.harish.photographyportfolio.main.presentation.state.MainScreenAction
+import com.harish.photographyportfolio.main.presentation.state.MainScreenState
 import kotlinx.coroutines.flow.MutableStateFlow
 import kotlinx.coroutines.flow.SharingStarted
 import kotlinx.coroutines.flow.onStart
@@ -12,7 +13,9 @@ import kotlinx.coroutines.flow.stateIn
 import kotlinx.coroutines.flow.update
 
 
-class MainScreenViewModel : ViewModel() {
+class MainScreenViewModel(
+    val mainRepository: MainRepository
+) : ViewModel() {
 
     private var _mainScreenState: MutableStateFlow<MainScreenState> =
         MutableStateFlow(MainScreenState())
@@ -20,6 +23,9 @@ class MainScreenViewModel : ViewModel() {
         .onStart {
             onAction(
                 MainScreenAction.SetHomeItemHeight
+            )
+            onAction(
+                MainScreenAction.GetHomeImageCarouselList
             )
         }
         .stateIn(
@@ -40,7 +46,14 @@ class MainScreenViewModel : ViewModel() {
                 }
             }
 
-
+            MainScreenAction.GetHomeImageCarouselList -> {
+                val imageList = mainRepository.getCarouselImages()
+                _mainScreenState.update {
+                    it.copy(
+                        homeCarouselList = imageList
+                    )
+                }
+            }
         }
     }
 

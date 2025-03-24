@@ -1,4 +1,4 @@
-package com.harish.photographyportfolio.home.presentation.components
+package com.harish.photographyportfolio.main.presentation.components
 
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Row
