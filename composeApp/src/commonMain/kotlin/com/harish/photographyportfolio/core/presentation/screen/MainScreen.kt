@@ -15,9 +15,7 @@ fun MainScreenRoot(
     modifier: Modifier = Modifier,
     mainScreenViewModel: MainScreenViewModel = koinViewModel(),
 ) {
-
     val mainScreenState = mainScreenViewModel.mainScreenState.collectAsStateWithLifecycle()
-
     MainScreen(
         modifier,
         mainScreenState.value.homeItemViewportSize
