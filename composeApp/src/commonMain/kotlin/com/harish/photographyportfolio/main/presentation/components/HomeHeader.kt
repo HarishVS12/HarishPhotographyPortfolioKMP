@@ -16,8 +16,10 @@ import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.draw.clip
 import androidx.compose.ui.graphics.Color
+import androidx.compose.ui.text.font.FontStyle
+import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.unit.dp
-import androidx.compose.ui.unit.sp
+import com.harish.photographyportfolio.core.presentation.getPrimaryFontFamily
 
 @Composable
 fun HomeHeader(modifier: Modifier = Modifier) {
@@ -79,6 +81,9 @@ fun HomeHeaderItem(
         style = MaterialTheme.typography.subtitle1,
         modifier = Modifier
             .clickable { onHeaderClick() }
-            .padding(horizontal = 24.dp, vertical = 16.dp)
+            .padding(horizontal = 24.dp, vertical = 16.dp),
+        fontFamily = getPrimaryFontFamily(),
+        fontStyle = FontStyle.Normal,
+        fontWeight = FontWeight.Bold
     )
 }

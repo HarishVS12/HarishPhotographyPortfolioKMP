@@ -55,7 +55,6 @@ fun HomePictureCarousel(
                     .width(mainContentSize.second.dp)
                     .background(Color.Black)
                     .alpha(0.5f)
-
             )
         }
     }
