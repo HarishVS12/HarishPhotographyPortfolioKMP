@@ -1,4 +1,4 @@
-package com.harish.photographyportfolio.main.presentation.components
+package com.harish.photographyportfolio.main.presentation.components.home
 
 import androidx.compose.foundation.background
 import androidx.compose.foundation.clickable

@@ -2,12 +2,15 @@ package com.harish.photographyportfolio.main.presentation.screen
 
 import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.fillMaxSize
+import androidx.compose.foundation.layout.height
+import androidx.compose.foundation.layout.width
 import androidx.compose.foundation.lazy.LazyColumn
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
+import androidx.compose.ui.unit.dp
 import androidx.lifecycle.compose.collectAsStateWithLifecycle
 import com.harish.photographyportfolio.main.presentation.viewmodel.MainScreenViewModel
-import com.harish.photographyportfolio.main.presentation.components.HomeSection
+import com.harish.photographyportfolio.main.presentation.components.home.HomeSection
 import org.koin.compose.viewmodel.koinViewModel
 
 @Composable
@@ -33,7 +36,12 @@ fun MainScreen(
     Box(modifier = Modifier.fillMaxSize()) {
         LazyColumn(modifier = Modifier.fillMaxSize()) {
             item {
-                HomeSection(modifier, mainContentSize, homeCarouselList)
+                HomeSection(
+                    modifier
+                        .height(mainContentSize?.first?.dp!!)
+                        .width(mainContentSize.second.dp),
+                    homeCarouselList
+                )
             }
         }
     }

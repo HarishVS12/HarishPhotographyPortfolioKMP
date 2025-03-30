@@ -1,4 +1,4 @@
-package com.harish.photographyportfolio.main.presentation.components
+package com.harish.photographyportfolio.main.presentation.components.home
 
 import androidx.compose.animation.AnimatedVisibility
 import androidx.compose.animation.core.MutableTransitionState
@@ -8,7 +8,6 @@ import androidx.compose.animation.fadeOut
 import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.height
 import androidx.compose.foundation.layout.width
-import androidx.compose.material.Colors
 import androidx.compose.material.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.remember
@@ -29,15 +28,12 @@ import com.harish.photographyportfolio.core.util.toColor
 @Composable
 fun HomeSection(
     modifier: Modifier = Modifier,
-    mainContentSize: Pair<Int, Int>?,
     homeCarouselList: List<String>
 ) {
     Box(
         modifier = Modifier
-            .height(mainContentSize?.first?.dp!!)
-            .width(mainContentSize.second.dp)
     ) {
-        HomePictureCarousel(modifier, mainContentSize, homeCarouselList)
+        HomePictureCarousel(modifier, homeCarouselList)
         HomeHeader()
         HomeContent(
             modifier = Modifier

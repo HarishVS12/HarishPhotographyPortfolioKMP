@@ -1,4 +1,4 @@
-package com.harish.photographyportfolio.main.presentation.components
+package com.harish.photographyportfolio.main.presentation.components.home
 
 import androidx.compose.foundation.background
 import androidx.compose.foundation.gestures.snapping.rememberSnapFlingBehavior
@@ -21,7 +21,6 @@ import kotlinx.coroutines.delay
 @Composable
 fun HomePictureCarousel(
     modifier: Modifier = Modifier,
-    mainContentSize: Pair<Int, Int>?,
     homeCarouselList: List<String>
 ) {
     val lazyListState = rememberLazyListState()
@@ -50,9 +49,7 @@ fun HomePictureCarousel(
                 model = it,
                 contentDescription = "image",
                 contentScale = ContentScale.Crop,
-                modifier = Modifier
-                    .height(mainContentSize?.first?.dp!!)
-                    .width(mainContentSize.second.dp)
+                modifier = modifier
                     .background(Color.Black)
                     .alpha(0.5f)
             )
