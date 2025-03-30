@@ -26,14 +26,25 @@ fun HomeHeader(modifier: Modifier = Modifier) {
     Box(
         modifier = Modifier
             .fillMaxWidth()
-            .padding(top = 16.dp)
+            .padding(top = 16.dp, end = 16.dp)
     ) {
+        Text(
+            text = "Harish",
+            style = MaterialTheme.typography.h4,
+            modifier = Modifier
+                .padding(start = 16.dp, top = 16.dp)
+                .align(Alignment.CenterStart),
+            fontFamily = getPrimaryFontFamily(),
+            fontStyle = FontStyle.Normal,
+            fontWeight = FontWeight.Bold,
+            color = Color.White
+        )
         Row(
             modifier = Modifier
-                .clip(RoundedCornerShape(20.dp))
+                .clip(RoundedCornerShape(12.dp))
                 .background(Color.White)
                 .wrapContentSize()
-                .align(Alignment.Center),
+                .align(Alignment.CenterEnd),
             horizontalArrangement = Arrangement.Center,
             verticalAlignment = Alignment.CenterVertically,
         ) {
@@ -78,10 +89,10 @@ fun HomeHeaderItem(
 ) {
     Text(
         text = title,
-        style = MaterialTheme.typography.subtitle1,
+        style = MaterialTheme.typography.subtitle2,
         modifier = Modifier
             .clickable { onHeaderClick() }
-            .padding(horizontal = 24.dp, vertical = 16.dp),
+            .padding(horizontal = 16.dp, vertical = 16.dp),
         fontFamily = getPrimaryFontFamily(),
         fontStyle = FontStyle.Normal,
         fontWeight = FontWeight.Bold

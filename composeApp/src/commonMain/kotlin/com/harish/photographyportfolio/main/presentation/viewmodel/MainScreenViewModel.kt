@@ -50,7 +50,7 @@ class MainScreenViewModel(
                 val imageList = mainRepository.getCarouselImages()
                 _mainScreenState.update {
                     it.copy(
-                        homeCarouselList = imageList
+                        homeCarouselList = imageList.imageUrl
                     )
                 }
             }

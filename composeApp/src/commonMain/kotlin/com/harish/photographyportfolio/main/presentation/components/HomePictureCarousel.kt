@@ -29,9 +29,8 @@ fun HomePictureCarousel(
     LaunchedEffect(null) {
         var pos = 0
         while (true) {
-            if (pos > 5) {
+            if (pos >= homeCarouselList.size)
                 pos = 0
-            }
             lazyListState.animateScrollToItem(
                 index = pos
             )
@@ -45,11 +44,12 @@ fun HomePictureCarousel(
         state = lazyListState,
         flingBehavior = rememberSnapFlingBehavior(lazyListState = lazyListState),
     ) {
-        items(homeCarouselList, key = { it }) {
+        println("homeCarouselList $homeCarouselList")
+        items(homeCarouselList) {
             AsyncImage(
                 model = it,
                 contentDescription = "image",
-                contentScale = ContentScale.FillBounds,
+                contentScale = ContentScale.Crop,
                 modifier = Modifier
                     .height(mainContentSize?.first?.dp!!)
                     .width(mainContentSize.second.dp)
