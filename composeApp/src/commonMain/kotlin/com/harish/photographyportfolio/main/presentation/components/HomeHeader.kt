@@ -33,7 +33,7 @@ fun HomeHeader(modifier: Modifier = Modifier) {
             text = "Harish",
             style = MaterialTheme.typography.h4,
             modifier = Modifier
-                .padding(start = 16.dp, top = 16.dp)
+                .padding(start = 24.dp, top = 16.dp)
                 .align(Alignment.CenterStart),
             fontFamily = getHeaderFontFamily(),
             fontStyle = FontStyle.Normal,
