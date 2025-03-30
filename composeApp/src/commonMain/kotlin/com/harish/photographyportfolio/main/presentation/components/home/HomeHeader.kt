@@ -64,7 +64,7 @@ fun HomeHeader(modifier: Modifier = Modifier) {
                     }
 
                     2 -> {
-                        headerTitle = "My Photos"
+                        headerTitle = "Gallery"
                         onHeaderClick = {}
                     }
 
