@@ -9,6 +9,7 @@ import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.unit.dp
 import androidx.lifecycle.compose.collectAsStateWithLifecycle
+import com.harish.photographyportfolio.main.presentation.components.about.AboutSection
 import com.harish.photographyportfolio.main.presentation.viewmodel.MainScreenViewModel
 import com.harish.photographyportfolio.main.presentation.components.home.HomeSection
 import org.koin.compose.viewmodel.koinViewModel
@@ -41,6 +42,13 @@ fun MainScreen(
                         .height(mainContentSize?.first?.dp!!)
                         .width(mainContentSize.second.dp),
                     homeCarouselList
+                )
+            }
+            item {
+                AboutSection(
+                    modifier
+                        .height(mainContentSize?.first?.dp!!)
+                        .width(mainContentSize.second.dp)
                 )
             }
         }

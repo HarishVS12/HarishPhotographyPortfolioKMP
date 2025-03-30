@@ -44,7 +44,7 @@ fun HomePictureCarousel(
         flingBehavior = rememberSnapFlingBehavior(lazyListState = lazyListState),
     ) {
         println("homeCarouselList $homeCarouselList")
-        items(homeCarouselList) {
+        items(homeCarouselList, key = { it }) {
             AsyncImage(
                 model = it,
                 contentDescription = "image",
