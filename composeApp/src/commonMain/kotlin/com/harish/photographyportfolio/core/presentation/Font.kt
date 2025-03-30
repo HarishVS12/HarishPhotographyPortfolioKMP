@@ -1,10 +1,12 @@
 package com.harish.photographyportfolio.core.presentation
 
 import androidx.compose.runtime.Composable
+import androidx.compose.ui.Modifier
 import androidx.compose.ui.text.font.FontFamily
 import androidx.compose.ui.text.font.FontStyle
 import androidx.compose.ui.text.font.FontWeight
 import harishphotographyportfolio.composeapp.generated.resources.Res
+import harishphotographyportfolio.composeapp.generated.resources.dancing_bold
 import harishphotographyportfolio.composeapp.generated.resources.mon_bold
 import harishphotographyportfolio.composeapp.generated.resources.mon_extra_bold
 import harishphotographyportfolio.composeapp.generated.resources.mon_medium
@@ -21,4 +23,10 @@ fun getPrimaryFontFamily() =
         Font(Res.font.mon_bold, weight = FontWeight.Bold, style = FontStyle.Normal),
         Font(Res.font.mon_semi_bold, weight = FontWeight.SemiBold, style = FontStyle.Normal),
         Font(Res.font.mon_extra_bold, weight = FontWeight.ExtraBold, style = FontStyle.Normal)
+    )
+
+@Composable
+fun getHeaderFontFamily(modifier: Modifier = Modifier) =
+    FontFamily(
+        Font(Res.font.dancing_bold, weight = FontWeight.Bold, style = FontStyle.Normal)
     )

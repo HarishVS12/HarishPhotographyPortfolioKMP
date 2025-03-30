@@ -19,6 +19,7 @@ import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.text.font.FontStyle
 import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.unit.dp
+import com.harish.photographyportfolio.core.presentation.getHeaderFontFamily
 import com.harish.photographyportfolio.core.presentation.getPrimaryFontFamily
 
 @Composable
@@ -34,7 +35,7 @@ fun HomeHeader(modifier: Modifier = Modifier) {
             modifier = Modifier
                 .padding(start = 16.dp, top = 16.dp)
                 .align(Alignment.CenterStart),
-            fontFamily = getPrimaryFontFamily(),
+            fontFamily = getHeaderFontFamily(),
             fontStyle = FontStyle.Normal,
             fontWeight = FontWeight.Bold,
             color = Color.White
