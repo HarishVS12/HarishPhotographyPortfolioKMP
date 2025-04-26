@@ -10,7 +10,6 @@ import com.harish.photographyportfolio.core.presentation.screen.App
 class MainActivity : ComponentActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-
         setContent {
             App()
         }
