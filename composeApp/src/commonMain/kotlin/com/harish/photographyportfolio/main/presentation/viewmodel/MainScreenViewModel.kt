@@ -39,9 +39,10 @@ class MainScreenViewModel(
         when (action) {
             MainScreenAction.SetHomeItemHeight -> {
                 val size = getViewPortSize()
+                println("MainScreenActionSize: Height: ${size?.first} Width: ${size?.second}")
                 _mainScreenState.update {
                     it.copy(
-                        homeItemViewportSize = size
+                        homeItemViewportSize = size ?: Pair(400, 220)
                     )
                 }
             }

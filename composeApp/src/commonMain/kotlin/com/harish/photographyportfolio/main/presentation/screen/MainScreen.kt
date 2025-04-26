@@ -41,7 +41,7 @@ fun MainScreen(
                 HomeSection(
                     modifier
                         .height(mainContentSize?.first?.dp!!)
-                        .width(mainContentSize.second.dp),
+                        .width(mainContentSize?.second?.dp!!),
                     homeCarouselList
                 )
             }
@@ -49,14 +49,14 @@ fun MainScreen(
                 AboutSection(
                     modifier
                         .height(mainContentSize?.first?.dp!!)
-                        .width(mainContentSize.second.dp)
+                        .width(mainContentSize?.second?.dp!!)
                 )
             }
             item {
                 GallerySection(
                     modifier
                         .height(mainContentSize?.first?.dp!!)
-                        .width(mainContentSize.second.dp)
+                        .width(mainContentSize?.second?.dp!!),
                 )
             }
         }
