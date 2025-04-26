@@ -23,7 +23,7 @@ import com.harish.photographyportfolio.core.presentation.getHeaderFontFamily
 import com.harish.photographyportfolio.core.presentation.getPrimaryFontFamily
 
 @Composable
-fun HomeNavBar(modifier: Modifier = Modifier) {
+fun HomeNavBar(modifier: Modifier = Modifier, showNavTopBar: Boolean) {
     Box(
         modifier = Modifier
             .fillMaxWidth()
@@ -34,49 +34,57 @@ fun HomeNavBar(modifier: Modifier = Modifier) {
             style = MaterialTheme.typography.h4,
             modifier = Modifier
                 .padding(start = 24.dp, top = 16.dp)
-                .align(Alignment.CenterStart),
+                .align(
+                    if (showNavTopBar) {
+                        Alignment.CenterStart
+                    } else {
+                        Alignment.Center
+                    }
+                ),
             fontFamily = getHeaderFontFamily(),
             fontStyle = FontStyle.Normal,
             fontWeight = FontWeight.Bold,
             color = Color.White
         )
-        Row(
-            modifier = Modifier
-                .clip(RoundedCornerShape(12.dp))
-                .background(Color.White)
-                .wrapContentSize()
-                .align(Alignment.CenterEnd),
-            horizontalArrangement = Arrangement.Center,
-            verticalAlignment = Alignment.CenterVertically,
-        ) {
-            repeat((1..4).count()) { index ->
-                var headerTitle = ""
-                var onHeaderClick = {}
-                when (index) {
-                    0 -> {
-                        headerTitle = "Home"
-                        onHeaderClick = {}
-                    }
+        if (showNavTopBar) {
+            Row(
+                modifier = Modifier
+                    .clip(RoundedCornerShape(12.dp))
+                    .background(Color.White)
+                    .wrapContentSize()
+                    .align(Alignment.CenterEnd),
+                horizontalArrangement = Arrangement.Center,
+                verticalAlignment = Alignment.CenterVertically,
+            ) {
+                repeat((1..4).count()) { index ->
+                    var headerTitle = ""
+                    var onHeaderClick = {}
+                    when (index) {
+                        0 -> {
+                            headerTitle = "Home"
+                            onHeaderClick = {}
+                        }
 
-                    1 -> {
-                        headerTitle = "About Me"
-                        onHeaderClick = {}
-                    }
+                        1 -> {
+                            headerTitle = "About Me"
+                            onHeaderClick = {}
+                        }
 
-                    2 -> {
-                        headerTitle = "Gallery"
-                        onHeaderClick = {}
-                    }
+                        2 -> {
+                            headerTitle = "Gallery"
+                            onHeaderClick = {}
+                        }
 
-                    3 -> {
-                        headerTitle = "Contact"
-                        onHeaderClick = {}
+                        3 -> {
+                            headerTitle = "Contact"
+                            onHeaderClick = {}
+                        }
                     }
+                    HomeHeaderItem(
+                        title = headerTitle,
+                        onHeaderClick = onHeaderClick
+                    )
                 }
-                HomeHeaderItem(
-                    title = headerTitle,
-                    onHeaderClick = onHeaderClick
-                )
             }
         }
     }

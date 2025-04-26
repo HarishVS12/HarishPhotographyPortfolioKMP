@@ -4,13 +4,10 @@ import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.height
-import androidx.compose.foundation.layout.width
-import androidx.compose.foundation.layout.wrapContentSize
 import androidx.compose.foundation.lazy.LazyColumn
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.unit.dp
-import androidx.compose.ui.unit.sp
 import com.harish.photographyportfolio.core.ScreenSize
 import com.harish.photographyportfolio.main.presentation.components.about.AboutSection
 import com.harish.photographyportfolio.main.presentation.components.gallery.GallerySection
@@ -29,9 +26,9 @@ fun MainScreenMobile(
                 HomeSection(
                     modifier
                         .fillMaxWidth()
-                        .height(200.dp),
+                        .height(500.dp),
                     homeCarouselList,
-                    50,
+                    60,
                     false
                 )
             }
