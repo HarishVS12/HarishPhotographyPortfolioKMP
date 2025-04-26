@@ -7,7 +7,7 @@ actual fun getScreenSizeRatio(): ScreenSize? {
 }
 
 actual fun getDevicePlatform(): DevicePlatform {
-    return if (window.innerWidth < 700) {
+    return if (window.innerWidth < 768) {
         DevicePlatform.MOBILE_WEB
     } else {
         DevicePlatform.WEB
