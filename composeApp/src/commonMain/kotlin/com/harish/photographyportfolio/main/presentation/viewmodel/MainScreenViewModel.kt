@@ -2,7 +2,8 @@ package com.harish.photographyportfolio.main.presentation.viewmodel
 
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
-import com.harish.photographyportfolio.core.getViewPortSize
+import com.harish.photographyportfolio.core.getDevicePlatform
+import com.harish.photographyportfolio.core.getScreenSizeRatio
 import com.harish.photographyportfolio.main.domain.MainRepository
 import com.harish.photographyportfolio.main.presentation.state.MainScreenAction
 import com.harish.photographyportfolio.main.presentation.state.MainScreenState
@@ -22,7 +23,7 @@ class MainScreenViewModel(
     val mainScreenState = _mainScreenState
         .onStart {
             onAction(
-                MainScreenAction.SetHomeItemHeight
+                MainScreenAction.SetDeviceDetails
             )
             onAction(
                 MainScreenAction.GetHomeImageCarouselList
@@ -37,12 +38,14 @@ class MainScreenViewModel(
 
     fun onAction(action: MainScreenAction) {
         when (action) {
-            MainScreenAction.SetHomeItemHeight -> {
-                val size = getViewPortSize()
-                println("MainScreenActionSize: Height: ${size?.first} Width: ${size?.second}")
+            MainScreenAction.SetDeviceDetails -> {
+                val size = getScreenSizeRatio()
+                val devicePlatform = getDevicePlatform()
+
                 _mainScreenState.update {
                     it.copy(
-                        homeItemViewportSize = size ?: Pair(400, 220)
+                        homeItemViewportSize = size,
+                        devicePlatform = devicePlatform
                     )
                 }
             }

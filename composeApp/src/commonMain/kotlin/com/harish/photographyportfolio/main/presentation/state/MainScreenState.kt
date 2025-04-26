@@ -1,8 +1,12 @@
 package com.harish.photographyportfolio.main.presentation.state
 
+import com.harish.photographyportfolio.core.DevicePlatform
+import com.harish.photographyportfolio.core.ScreenSize
+
 
 data class MainScreenState(
-    val homeItemViewportSize: Pair<Int, Int>? = Pair(0, 0),
+    val devicePlatform: DevicePlatform = DevicePlatform.MOBILE,
+    val homeItemViewportSize: ScreenSize? = null,
     val homeCarouselList: List<String> = emptyList(),
     val isLoading: Boolean = true,
 )
