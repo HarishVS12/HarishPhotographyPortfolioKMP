@@ -28,55 +28,21 @@ import com.harish.photographyportfolio.core.util.toColor
 @Composable
 fun HomeSection(
     modifier: Modifier = Modifier,
-    homeCarouselList: List<String>
+    homeCarouselList: List<String>,
+    homeHeaderTextSize: Int,
+    showNavBar: Boolean,
 ) {
     Box(
         modifier = Modifier
     ) {
         HomePictureCarousel(modifier, homeCarouselList)
-        HomeHeader()
-        HomeContent(
-            modifier = Modifier
-                .align(Alignment.Center)
-        )
-    }
-}
-
-@Composable
-fun HomeContent(modifier: Modifier = Modifier) {
-    val state = remember {
-        MutableTransitionState(false).apply {
-            targetState = true
+        if (showNavBar) {
+            HomeNavBar()
         }
-    }
-    AnimatedVisibility(
-        visibleState = state,
-        enter = fadeIn(
-            animationSpec = tween(2000, delayMillis = 500)
-        ),
-        exit = fadeOut(
-            animationSpec = tween(2000, delayMillis = 500)
-        ),
-        modifier = modifier
-    )
-    {
-        Text(
-            text = "Welcome..",
-            modifier = modifier
-                .alpha(0.8f),
-            fontFamily = getPrimaryFontFamily(),
-            fontStyle = FontStyle.Normal,
-            fontWeight = FontWeight.Bold,
-            fontSize = 170.sp,
-            style = TextStyle(
-                brush = Brush.horizontalGradient(
-                    listOf(
-                        "#ff9a9e".toColor(),
-                        "#fccb90".toColor(),
-                        Color.Transparent
-                    )
-                )
-            )
+        HomeHeader(
+            modifier = Modifier
+                .align(Alignment.Center),
+            textSize = homeHeaderTextSize
         )
     }
 }

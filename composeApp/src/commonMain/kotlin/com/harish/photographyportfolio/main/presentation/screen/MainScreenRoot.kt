@@ -1,10 +1,13 @@
 package com.harish.photographyportfolio.main.presentation.screen
 
 import androidx.compose.runtime.Composable
+import androidx.compose.runtime.DisposableEffect
 import androidx.compose.runtime.getValue
 import androidx.compose.ui.Modifier
 import androidx.lifecycle.compose.collectAsStateWithLifecycle
 import com.harish.photographyportfolio.core.DevicePlatform
+import com.harish.photographyportfolio.core.getDevicePlatformOnResize
+import com.harish.photographyportfolio.main.presentation.state.MainScreenAction
 import com.harish.photographyportfolio.main.presentation.viewmodel.MainScreenViewModel
 import org.koin.compose.viewmodel.koinViewModel
 
@@ -14,6 +17,16 @@ fun MainScreenRoot(
     mainScreenViewModel: MainScreenViewModel = koinViewModel(),
 ) {
     val mainScreenState by mainScreenViewModel.mainScreenState.collectAsStateWithLifecycle()
+
+    getDevicePlatformOnResize { devicePlatform, screenSize ->
+        mainScreenViewModel.onAction(
+            MainScreenAction.SetDeviceDetails(
+                devicePlatform,
+                screenSize
+            )
+        )
+    }
+
     if (mainScreenState.devicePlatform == DevicePlatform.WEB) {
         MainScreenWeb(
             modifier,

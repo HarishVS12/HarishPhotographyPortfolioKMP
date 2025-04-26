@@ -5,6 +5,7 @@ expect fun getScreenSizeRatio(): ScreenSize?
 
 expect fun getDevicePlatform(): DevicePlatform
 
+expect fun getDevicePlatformOnResize(invokeDevicePlatform: (DevicePlatform, ScreenSize?) -> Unit)
 
 data class ScreenSize(val width: Int, val height: Int)
 

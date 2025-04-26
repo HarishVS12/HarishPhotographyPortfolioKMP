@@ -29,7 +29,9 @@ fun MainScreenWeb(
             item {
                 HomeSection(
                     itemParentModifier,
-                    homeCarouselList
+                    homeCarouselList,
+                    170,
+                    true
                 )
             }
             item {

@@ -10,6 +10,7 @@ import androidx.compose.foundation.lazy.LazyColumn
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.unit.dp
+import androidx.compose.ui.unit.sp
 import com.harish.photographyportfolio.core.ScreenSize
 import com.harish.photographyportfolio.main.presentation.components.about.AboutSection
 import com.harish.photographyportfolio.main.presentation.components.gallery.GallerySection
@@ -29,7 +30,9 @@ fun MainScreenMobile(
                     modifier
                         .fillMaxWidth()
                         .height(200.dp),
-                    homeCarouselList
+                    homeCarouselList,
+                    50,
+                    false
                 )
             }
             item {

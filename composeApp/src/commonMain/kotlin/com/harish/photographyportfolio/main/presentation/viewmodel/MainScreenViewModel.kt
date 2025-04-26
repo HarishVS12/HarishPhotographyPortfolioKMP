@@ -23,7 +23,10 @@ class MainScreenViewModel(
     val mainScreenState = _mainScreenState
         .onStart {
             onAction(
-                MainScreenAction.SetDeviceDetails
+                MainScreenAction.SetDeviceDetails(
+                    devicePlatform = getDevicePlatform(),
+                    size = getScreenSizeRatio()
+                )
             )
             onAction(
                 MainScreenAction.GetHomeImageCarouselList
@@ -38,14 +41,11 @@ class MainScreenViewModel(
 
     fun onAction(action: MainScreenAction) {
         when (action) {
-            MainScreenAction.SetDeviceDetails -> {
-                val size = getScreenSizeRatio()
-                val devicePlatform = getDevicePlatform()
-
+            is MainScreenAction.SetDeviceDetails -> {
                 _mainScreenState.update {
                     it.copy(
-                        homeItemViewportSize = size,
-                        devicePlatform = devicePlatform
+                        homeItemViewportSize = action.size,
+                        devicePlatform = action.devicePlatform
                     )
                 }
             }

@@ -11,3 +11,6 @@ actual fun getScreenSizeRatio(): ScreenSize? {
 }
 
 actual fun getDevicePlatform(): DevicePlatform = DevicePlatform.MOBILE
+actual fun getDevicePlatformOnResize(invokeDevicePlatform: (DevicePlatform, ScreenSize?) -> Unit) {
+    invokeDevicePlatform(DevicePlatform.MOBILE, getScreenSizeRatio())
+}
