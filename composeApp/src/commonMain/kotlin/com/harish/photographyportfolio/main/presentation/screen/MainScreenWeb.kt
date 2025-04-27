@@ -13,7 +13,9 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.draw.clip
 import androidx.compose.ui.unit.dp
 import com.harish.photographyportfolio.core.ScreenSize
+import com.harish.photographyportfolio.main.presentation.components.MadeWithLoveSection
 import com.harish.photographyportfolio.main.presentation.components.about.AboutSection
+import com.harish.photographyportfolio.main.presentation.components.contact.ContactSection
 import com.harish.photographyportfolio.main.presentation.components.gallery.GallerySection
 import com.harish.photographyportfolio.main.presentation.components.home.HomeSection
 
@@ -52,6 +54,12 @@ fun MainScreenWeb(
                         .wrapContentSize()
                         .clip(RoundedCornerShape(12.dp))
                 )
+            }
+            item {
+                ContactSection(headerTextSize = 110, isSpacingRequired = true)
+            }
+            item {
+                MadeWithLoveSection(headerTextSize = 20)
             }
         }
     }
