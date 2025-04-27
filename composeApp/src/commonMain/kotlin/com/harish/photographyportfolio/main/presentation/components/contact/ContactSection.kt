@@ -9,6 +9,7 @@ import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.height
 import androidx.compose.foundation.layout.size
 import androidx.compose.foundation.layout.width
+import androidx.compose.material.IconButton
 import androidx.compose.material.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Alignment
@@ -52,26 +53,41 @@ fun ContactSection(modifier: Modifier = Modifier, headerTextSize: Int, isSpacing
             modifier = Modifier.fillMaxWidth(),
             horizontalArrangement = if (isSpacingRequired) Arrangement.Center else Arrangement.SpaceEvenly
         ) {
-            Image(
-                painter = painterResource(Res.drawable.instagram),
-                contentDescription = "",
-                modifier = Modifier.size(60.dp)
-            )
-            if (isSpacingRequired)
-                Spacer(modifier = Modifier.width(60.dp))
-            Image(
-                painter = painterResource(Res.drawable.linkedin),
-                contentDescription = "",
-                modifier = Modifier.size(60.dp)
-            )
+            IconButton(onClick = {
+
+            }) {
+                Image(
+                    painter = painterResource(Res.drawable.instagram),
+                    contentDescription = "",
+                    modifier = Modifier.size(60.dp)
+                )
+            }
 
             if (isSpacingRequired)
                 Spacer(modifier = Modifier.width(60.dp))
-            Image(
-                painter = painterResource(Res.drawable.github),
-                contentDescription = "",
-                modifier = Modifier.size(60.dp)
-            )
+
+            IconButton(onClick = {
+
+            }) {
+                Image(
+                    painter = painterResource(Res.drawable.linkedin),
+                    contentDescription = "",
+                    modifier = Modifier.size(60.dp)
+                )
+            }
+
+            if (isSpacingRequired)
+                Spacer(modifier = Modifier.width(60.dp))
+
+            IconButton(onClick = {
+
+            }) {
+                Image(
+                    painter = painterResource(Res.drawable.github),
+                    contentDescription = "",
+                    modifier = Modifier.size(60.dp)
+                )
+            }
 
         }
         Spacer(modifier = Modifier.height(40.dp))
