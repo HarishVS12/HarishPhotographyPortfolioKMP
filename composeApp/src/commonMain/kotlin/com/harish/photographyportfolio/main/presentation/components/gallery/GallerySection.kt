@@ -21,6 +21,7 @@ import com.harish.photographyportfolio.core.presentation.getHeaderFontFamily
 import com.harish.photographyportfolio.core.presentation.getPrimaryFontFamily
 import com.harish.photographyportfolio.core.util.getImageList
 import com.harish.photographyportfolio.core.util.toColor
+import com.harish.photographyportfolio.main.domain.SectionGallery
 import harishphotographyportfolio.composeapp.generated.resources.Res
 import harishphotographyportfolio.composeapp.generated.resources.about_me_header
 import org.jetbrains.compose.resources.stringResource
@@ -28,14 +29,13 @@ import org.jetbrains.compose.resources.stringResource
 @Composable
 fun GallerySection(
     modifier: Modifier,
-    imageList: List<String> = getImageList(),
     headerTextSize: Int,
-    imageDimensions: Modifier
+    imageDimensions: Modifier,
+    galleryResponse: SectionGallery?
 ) {
     Column(
         modifier = modifier
             .background("#ECF0E1".toColor())
-//            .padding(top = 16.dp),
     ) {
         Spacer(modifier = Modifier.height(24.dp))
         Text(
@@ -52,17 +52,17 @@ fun GallerySection(
         )
         Spacer(modifier = Modifier.height(68.dp))
         LazyRow {
-            items(imageList, key = {
-                it
+            items(galleryResponse?.carouselImages ?: emptyList(), key = {
+                it?.imageUrl ?: ""
             }) { image ->
                 Column {
                     SubcomposeAsyncImage(
-                        model = image,
+                        model = image?.imageUrl,
                         contentDescription = "image",
                         modifier = imageDimensions
                     )
                     Text(
-                        text = "Image desc here",
+                        text = image?.imageDesc ?: "",
                         modifier = Modifier
                             .align(Alignment.CenterHorizontally)
                             .padding(vertical = 16.dp),

@@ -24,18 +24,19 @@ import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import coil3.compose.AsyncImage
 import com.harish.photographyportfolio.core.presentation.getPrimaryFontFamily
+import com.harish.photographyportfolio.main.domain.SectionAboutMe
 import harishphotographyportfolio.composeapp.generated.resources.Res
 import harishphotographyportfolio.composeapp.generated.resources.dummy_text
 import org.jetbrains.compose.resources.stringResource
 
 @Composable
-fun AboutSection(modifier: Modifier) {
+fun AboutSection(modifier: Modifier, aboutMeResponse: SectionAboutMe?) {
     Column(
         modifier = modifier
             .padding(top = 16.dp, start = 16.dp, end = 16.dp),
     ) {
         Text(
-            text = "Through The Art .",
+            text = aboutMeResponse?.header ?: "",
             modifier = Modifier.align(Alignment.CenterHorizontally),
             fontFamily = getPrimaryFontFamily(),
             fontStyle = FontStyle.Normal,
@@ -48,7 +49,7 @@ fun AboutSection(modifier: Modifier) {
             modifier = Modifier.fillMaxWidth().wrapContentHeight(),
         ) {
             AsyncImage(
-                model = "https://i.postimg.cc/Y9MF5Jmd/Whats-App-Image-2025-03-30-at-10-54-48-AM.jpg",
+                model = aboutMeResponse?.heroImage ?: "",
                 contentDescription = "image",
                 contentScale = ContentScale.FillBounds,
                 modifier = Modifier
@@ -59,7 +60,7 @@ fun AboutSection(modifier: Modifier) {
             )
             Spacer(modifier = Modifier.width(24.dp))
             Text(
-                text = stringResource(Res.string.dummy_text),
+                text = aboutMeResponse?.description ?: "",
                 modifier = Modifier,
                 fontFamily = getPrimaryFontFamily(),
                 fontStyle = FontStyle.Normal,

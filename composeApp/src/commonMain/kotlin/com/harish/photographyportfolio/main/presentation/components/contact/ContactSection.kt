@@ -23,6 +23,7 @@ import androidx.compose.ui.unit.TextUnitType
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import com.harish.photographyportfolio.core.presentation.getPrimaryFontFamily
+import com.harish.photographyportfolio.main.domain.SectionContact
 import harishphotographyportfolio.composeapp.generated.resources.Res
 import harishphotographyportfolio.composeapp.generated.resources.github
 import harishphotographyportfolio.composeapp.generated.resources.instagram
@@ -30,13 +31,18 @@ import harishphotographyportfolio.composeapp.generated.resources.linkedin
 import org.jetbrains.compose.resources.painterResource
 
 @Composable
-fun ContactSection(modifier: Modifier = Modifier, headerTextSize: Int, isSpacingRequired: Boolean) {
+fun ContactSection(
+    modifier: Modifier = Modifier,
+    headerTextSize: Int,
+    isSpacingRequired: Boolean,
+    contactResponse: SectionContact?
+) {
     Column(
         modifier = Modifier.fillMaxWidth()
     ) {
         Spacer(modifier = Modifier.height(16.dp))
         Text(
-            text = "Contact  me",
+            text = contactResponse?.header?:"",
             modifier = Modifier.fillMaxWidth().align(Alignment.CenterHorizontally),
             fontFamily = getPrimaryFontFamily(),
             fontStyle = FontStyle.Normal,

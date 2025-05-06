@@ -1,8 +1,5 @@
 package com.harish.photographyportfolio.main.domain
 
-import kotlinx.serialization.SerialName
-import kotlinx.serialization.Serializable
-
 
 data class MainResponse(
     val cards: List<MainSections>? = listOf()

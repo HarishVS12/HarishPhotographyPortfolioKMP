@@ -1,12 +1,10 @@
 package com.harish.photographyportfolio.main.presentation.components.about
 
 import androidx.compose.foundation.layout.Column
-import androidx.compose.foundation.layout.Row
 import androidx.compose.foundation.layout.Spacer
 import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.height
 import androidx.compose.foundation.layout.padding
-import androidx.compose.foundation.layout.width
 import androidx.compose.foundation.layout.wrapContentHeight
 import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.material.Text
@@ -18,7 +16,6 @@ import androidx.compose.ui.layout.ContentScale
 import androidx.compose.ui.text.font.FontStyle
 import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.text.style.TextAlign
-import androidx.compose.ui.text.style.TextDecoration
 import androidx.compose.ui.text.style.TextOverflow
 import androidx.compose.ui.unit.TextUnit
 import androidx.compose.ui.unit.TextUnitType
@@ -26,18 +23,16 @@ import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import coil3.compose.AsyncImage
 import com.harish.photographyportfolio.core.presentation.getPrimaryFontFamily
-import harishphotographyportfolio.composeapp.generated.resources.Res
-import harishphotographyportfolio.composeapp.generated.resources.dummy_text
-import org.jetbrains.compose.resources.stringResource
+import com.harish.photographyportfolio.main.domain.SectionAboutMe
 
 @Composable
-fun AboutSectionMobile(modifier: Modifier = Modifier) {
+fun AboutSectionMobile(modifier: Modifier = Modifier, aboutMeResponse: SectionAboutMe?) {
     Column(
         modifier = modifier
             .padding(top = 16.dp, start = 16.dp, end = 16.dp),
     ) {
         Text(
-            text = "Through The Art .",
+            text = aboutMeResponse?.header ?: "",
             modifier = Modifier.align(Alignment.CenterHorizontally),
             fontFamily = getPrimaryFontFamily(),
             fontStyle = FontStyle.Normal,
@@ -52,7 +47,7 @@ fun AboutSectionMobile(modifier: Modifier = Modifier) {
             modifier = Modifier.fillMaxWidth().wrapContentHeight(),
         ) {
             AsyncImage(
-                model = "https://i.postimg.cc/Y9MF5Jmd/Whats-App-Image-2025-03-30-at-10-54-48-AM.jpg",
+                model = aboutMeResponse?.heroImage ?: "",
                 contentDescription = "image",
                 contentScale = ContentScale.Crop,
                 modifier = Modifier
@@ -62,7 +57,7 @@ fun AboutSectionMobile(modifier: Modifier = Modifier) {
             )
             Spacer(modifier = Modifier.height(16.dp))
             Text(
-                text = stringResource(Res.string.dummy_text),
+                text = aboutMeResponse?.description ?: "",
                 modifier = Modifier,
                 fontFamily = getPrimaryFontFamily(),
                 fontStyle = FontStyle.Normal,

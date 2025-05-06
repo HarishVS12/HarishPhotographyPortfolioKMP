@@ -22,6 +22,12 @@ class MainScreenViewModel(
     init {
         viewModelScope.launch {
             val resp = mainRepository.getMainResponse()
+            _mainScreenState.update {
+                it.copy(
+                    mainSection = resp?.cards ?: emptyList(),
+                    isLoading = false
+                )
+            }
         }
     }
 

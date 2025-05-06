@@ -1,7 +1,6 @@
 package com.harish.photographyportfolio.main.presentation.screen
 
 import androidx.compose.runtime.Composable
-import androidx.compose.runtime.DisposableEffect
 import androidx.compose.runtime.getValue
 import androidx.compose.ui.Modifier
 import androidx.lifecycle.compose.collectAsStateWithLifecycle
@@ -31,13 +30,15 @@ fun MainScreenRoot(
         MainScreenWeb(
             modifier,
             mainScreenState.homeItemViewportSize,
-            mainScreenState.homeCarouselList
+            mainScreenState.homeCarouselList,
+            mainScreenState.mainSection
         )
     } else {
         MainScreenMobile(
             modifier,
             mainScreenState.homeItemViewportSize,
-            mainScreenState.homeCarouselList
+            mainScreenState.homeCarouselList,
+            mainScreenState.mainSection
         )
     }
 }
