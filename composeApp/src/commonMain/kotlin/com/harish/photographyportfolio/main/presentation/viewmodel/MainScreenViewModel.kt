@@ -12,11 +12,18 @@ import kotlinx.coroutines.flow.SharingStarted
 import kotlinx.coroutines.flow.onStart
 import kotlinx.coroutines.flow.stateIn
 import kotlinx.coroutines.flow.update
+import kotlinx.coroutines.launch
 
 
 class MainScreenViewModel(
     val mainRepository: MainRepository
 ) : ViewModel() {
+
+    init {
+        viewModelScope.launch {
+            mainRepository.getMainResponse()
+        }
+    }
 
     private var _mainScreenState: MutableStateFlow<MainScreenState> =
         MutableStateFlow(MainScreenState())

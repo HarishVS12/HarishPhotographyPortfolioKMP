@@ -5,6 +5,6 @@ import kotlinx.coroutines.flow.Flow
 
 interface RemoteMainDataSource {
 
-    fun getMainResponse(): Flow<MainResponseDTO>
+    suspend fun getMainResponse(): MainResponseDTO?
 
 }
