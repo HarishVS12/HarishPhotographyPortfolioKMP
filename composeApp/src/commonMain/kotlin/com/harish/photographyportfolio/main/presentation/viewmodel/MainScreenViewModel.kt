@@ -16,12 +16,12 @@ import kotlinx.coroutines.launch
 
 
 class MainScreenViewModel(
-    val mainRepository: MainRepository
+    private val mainRepository: MainRepository
 ) : ViewModel() {
 
     init {
         viewModelScope.launch {
-            mainRepository.getMainResponse()
+            val resp = mainRepository.getMainResponse()
         }
     }
 

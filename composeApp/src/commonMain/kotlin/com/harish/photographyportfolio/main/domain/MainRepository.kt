@@ -1,10 +1,8 @@
 package com.harish.photographyportfolio.main.domain
 
-import com.harish.photographyportfolio.main.data.dto.MainResponseDTO
-
 interface MainRepository {
 
-    fun getCarouselImages(): CarouselImage
+    fun getCarouselImages(): CarouselImages
 
-    suspend fun getMainResponse(): MainResponseDTO?
+    suspend fun getMainResponse(): MainResponse?
 }

@@ -1,5 +1,5 @@
 package com.harish.photographyportfolio.main.data.dto
 
-data class CarouselImageDTO(
+data class CarouselImagesDTO(
     val imageUrl: List<String>
 )

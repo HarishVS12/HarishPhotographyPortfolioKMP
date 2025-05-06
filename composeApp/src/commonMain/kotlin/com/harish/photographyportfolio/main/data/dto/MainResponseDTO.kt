@@ -7,25 +7,25 @@ import kotlinx.serialization.Serializable
 @Serializable
 data class MainResponseDTO(
     @SerialName("cards")
-    val cards: List<MainSections>? = listOf()
+    val cards: List<MainSectionsDTO>? = listOf()
 )
 
 @Serializable
-data class MainSections(
+data class MainSectionsDTO(
     @SerialName("section_aboutme")
-    val sectionAboutMe: SectionAboutMe? = SectionAboutMe(),
+    val sectionAboutMe: SectionAboutMeDTO? = SectionAboutMeDTO(),
     @SerialName("section_contact")
-    val sectionContact: SectionContact? = SectionContact(),
+    val sectionContact: SectionContactDTO? = SectionContactDTO(),
     @SerialName("section_gallery")
-    val sectionGallery: SectionGallery? = SectionGallery(),
+    val sectionGallery: SectionGalleryDTO? = SectionGalleryDTO(),
     @SerialName("section_hero")
-    val sectionHero: SectionHero? = SectionHero(),
+    val sectionHero: SectionHeroDTO? = SectionHeroDTO(),
     @SerialName("type")
     val type: String? = ""
 )
 
 @Serializable
-data class SectionAboutMe(
+data class SectionAboutMeDTO(
     @SerialName("description")
     val description: String? = null,
     @SerialName("header")
@@ -35,32 +35,32 @@ data class SectionAboutMe(
 )
 
 @Serializable
-data class SectionContact(
+data class SectionContactDTO(
     @SerialName("header")
     val header: String? = null,
     @SerialName("media_list")
-    val mediaList: List<ContactMedia?>? = null
+    val mediaList: List<ContactMediaDTO?>? = null
 )
 
 @Serializable
-data class SectionGallery(
+data class SectionGalleryDTO(
     @SerialName("carousel_images")
-    val carouselImages: List<CarouselImage?>? = null,
+    val carouselImages: List<CarouselImageDTO?>? = null,
     @SerialName("header")
     val header: String? = null
 )
 
 @Serializable
-data class SectionHero(
+data class SectionHeroDTO(
     @SerialName("carousel_images")
-    val carouselImages: List<CarouselImage>? = listOf(),
+    val carouselImages: List<CarouselImageDTO>? = listOf(),
     @SerialName("header")
     val header: String? = ""
 )
 
 
 @Serializable
-data class CarouselImage(
+data class CarouselImageDTO(
     @SerialName("image_desc")
     val imageDesc: String? = null,
     @SerialName("image_url")
@@ -68,7 +68,7 @@ data class CarouselImage(
 )
 
 @Serializable
-data class ContactMedia(
+data class ContactMediaDTO(
     @SerialName("image_url")
     val imageUrl: String? = null,
     @SerialName("media_url")

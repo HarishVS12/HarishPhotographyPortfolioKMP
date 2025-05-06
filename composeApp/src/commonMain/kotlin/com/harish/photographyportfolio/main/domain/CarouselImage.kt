@@ -1,5 +1,5 @@
 package com.harish.photographyportfolio.main.domain
 
-data class CarouselImage(
+data class CarouselImages(
     val imageUrl: List<String>
 )

@@ -1,25 +1,28 @@
 package com.harish.photographyportfolio.main.data.repo
 
 import com.harish.photographyportfolio.core.util.getImageList
-import com.harish.photographyportfolio.main.data.dto.CarouselImageDTO
-import com.harish.photographyportfolio.main.data.dto.MainResponseDTO
-import com.harish.photographyportfolio.main.data.mappers.toCarouseImage
+import com.harish.photographyportfolio.main.data.dto.CarouselImagesDTO
+import com.harish.photographyportfolio.main.data.mappers.toCarouselImages
+import com.harish.photographyportfolio.main.data.mappers.toMainResponse
 import com.harish.photographyportfolio.main.data.network.RemoteMainDataSource
-import com.harish.photographyportfolio.main.domain.CarouselImage
+import com.harish.photographyportfolio.main.domain.CarouselImages
 import com.harish.photographyportfolio.main.domain.MainRepository
+import com.harish.photographyportfolio.main.domain.MainResponse
 
 class MainRepositoryImpl(
-    val ktorRemoteMainDataSource: RemoteMainDataSource
+    private val ktorRemoteMainDataSource: RemoteMainDataSource
 ) : MainRepository {
 
-    override fun getCarouselImages(): CarouselImage {
-        return CarouselImageDTO(
+    override fun getCarouselImages(): CarouselImages {
+        return CarouselImagesDTO(
             imageUrl = getImageList()
-        ).toCarouseImage()
+        ).toCarouselImages()
     }
 
-    override suspend fun getMainResponse(): MainResponseDTO? {
-        return ktorRemoteMainDataSource.getMainResponse()
+    override suspend fun getMainResponse(): MainResponse? {
+        val ktorResponse = ktorRemoteMainDataSource?.getMainResponse()
+        val mainRepository = ktorResponse?.toMainResponse()
+        return ktorResponse?.toMainResponse()
     }
 
 }
