@@ -1,0 +1,88 @@
+{
+  "cards": [
+    {
+      "type": "section_hero",
+      "section_hero": {
+        "header": "Welcome..",
+        "carousel_images": [
+          {
+            "image_url": "https://i.postimg.cc/bwS1k0h9/Whats-App-Image-2025-03-30-at-10-54-46-AM.jpg",
+            "image_desc": "Image Desc 1"
+          },
+          {
+            "image_url": "https://i.postimg.cc/PqmZFtNL/Whats-App-Image-2025-03-30-at-10-54-48-AM-1.jpg",
+            "image_desc": "Image Desc 2"
+          },
+          {
+            "image_url": "https://i.postimg.cc/G2KDdqFd/Whats-App-Image-2025-03-30-at-10-54-49-AM.jpg",
+            "image_desc": "Image Desc 3"
+          },
+          {
+            "image_url": "https://i.postimg.cc/prdFTzC8/Whats-App-Image-2025-03-30-at-10-54-49-AM-1.jpg",
+            "image_desc": "Image Desc 4"
+          },
+          {
+            "image_url": "https://i.postimg.cc/wTZmqtmy/Whats-App-Image-2025-03-30-at-10-54-50-AM.jpg",
+            "image_desc": "Image Desc 5"
+          }
+        ]
+      }
+    },
+    {
+      "type": "section_aboutme",
+      "section_aboutme": {
+        "header": "Through The Art.",
+        "hero_image": "https://i.postimg.cc/Y9MF5Jmd/Whats-App-Image-2025-03-30-at-10-54-48-AM.jpg",
+        "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Etiam vel orci nisi. Aenean at ante tortor. Cras et dui et odio sagittis congue vestibulum et lorem. Suspendisse potenti. Phasellus ultricies, arcu in molestie imperdiet, turpis lectus consequat est, eget hendrerit risus lacus in libero. Aenean dictum erat ac sem cursus cursus. Maecenas ac sollicitudin urna. Nullam feugiat, leo varius luctus accumsan, lacus orci ultrices leo, ac gravida mauris risus nec leo. Sed nec massa vel dolor scelerisque semper nec eu justo. Ut egestas, libero a faucibus volutpat, neque augue malesuada ex, eget scelerisque neque nunc et purus."
+      }
+    },
+    {
+      "type": "section_gallery",
+      "section_gallery": {
+        "header": "Every photograph is a fragment of time, a moment captured before it fades. Through my lens, I invite you to see the world as I do—one frame at a time",
+        "carousel_images": [
+          {
+            "image_url": "https://i.postimg.cc/bwS1k0h9/Whats-App-Image-2025-03-30-at-10-54-46-AM.jpg",
+            "image_desc": "Image Desc 1"
+          },
+          {
+            "image_url": "https://i.postimg.cc/PqmZFtNL/Whats-App-Image-2025-03-30-at-10-54-48-AM-1.jpg",
+            "image_desc": "Image Desc 2"
+          },
+          {
+            "image_url": "https://i.postimg.cc/G2KDdqFd/Whats-App-Image-2025-03-30-at-10-54-49-AM.jpg",
+            "image_desc": "Image Desc 3"
+          },
+          {
+            "image_url": "https://i.postimg.cc/prdFTzC8/Whats-App-Image-2025-03-30-at-10-54-49-AM-1.jpg",
+            "image_desc": "Image Desc 4"
+          },
+          {
+            "image_url": "https://i.postimg.cc/wTZmqtmy/Whats-App-Image-2025-03-30-at-10-54-50-AM.jpg",
+            "image_desc": "Image Desc 5"
+          }
+        ]
+      }
+    },
+    {
+      "type": "section_contact",
+      "section_contact": {
+        "header": "Contact me",
+        "media_list": [
+          {
+            "image_url": "https://i.postimg.cc/prdFTzC8/Whats-App-Image-2025-03-30-at-10-54-49-AM-1.jpg",
+            "media_url": "https://www.instagram.com/_harish_vs_?igsh=YXlnd2lweHc2bWFy&utm_source=qr"
+          },
+          {
+            "image_url": "https://i.postimg.cc/prdFTzC8/Whats-App-Image-2025-03-30-at-10-54-49-AM-1.jpg",
+            "media_url": "https://www.linkedin.com/in/harish-v-835960167/"
+          },
+          {
+            "image_url": "https://i.postimg.cc/prdFTzC8/Whats-App-Image-2025-03-30-at-10-54-49-AM-1.jpg",
+            "media_url": "https://github.com/HarishVS12"
+          }
+        ]
+      }
+    }
+  ]
+}
