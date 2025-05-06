@@ -13,6 +13,7 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.draw.clip
 import androidx.compose.ui.unit.dp
 import com.harish.photographyportfolio.core.ScreenSize
+import com.harish.photographyportfolio.core.util.MainSectionCardTypes
 import com.harish.photographyportfolio.main.domain.MainSections
 import com.harish.photographyportfolio.main.presentation.components.MadeWithLoveSection
 import com.harish.photographyportfolio.main.presentation.components.about.AboutSectionMobile
@@ -32,7 +33,7 @@ fun MainScreenMobile(
         LazyColumn(modifier = Modifier.fillMaxSize()) {
             itemsIndexed(mainSection) { index, item ->
                 when (item.type) {
-                    "section_hero" -> {
+                    MainSectionCardTypes.HERO -> {
                         HomeSection(
                             modifier = modifier
                                 .fillParentMaxWidth()
@@ -44,7 +45,7 @@ fun MainScreenMobile(
 
                     }
 
-                    "section_gallery" -> {
+                    MainSectionCardTypes.GALLERY -> {
                         GallerySection(
                             modifier = modifier
                                 .fillMaxWidth(),
@@ -57,7 +58,7 @@ fun MainScreenMobile(
                         )
                     }
 
-                    "section_aboutme" -> {
+                    MainSectionCardTypes.ABOUT_ME -> {
                         AboutSectionMobile(
                             modifier = modifier
                                 .fillMaxWidth(),
@@ -65,7 +66,7 @@ fun MainScreenMobile(
                         )
                     }
 
-                    "section_contact" -> {
+                    MainSectionCardTypes.CONTACT -> {
                         ContactSection(
                             headerTextSize = 50,
                             isSpacingRequired = false,

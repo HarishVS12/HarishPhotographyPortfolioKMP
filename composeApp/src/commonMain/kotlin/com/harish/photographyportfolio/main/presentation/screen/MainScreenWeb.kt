@@ -15,6 +15,7 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.draw.clip
 import androidx.compose.ui.unit.dp
 import com.harish.photographyportfolio.core.ScreenSize
+import com.harish.photographyportfolio.core.util.MainSectionCardTypes
 import com.harish.photographyportfolio.main.domain.MainSections
 import com.harish.photographyportfolio.main.presentation.components.MadeWithLoveSection
 import com.harish.photographyportfolio.main.presentation.components.about.AboutSection
@@ -39,7 +40,7 @@ fun MainScreenWeb(
 
             itemsIndexed(mainSection) { index, item ->
                 when (item.type) {
-                    "section_hero" -> {
+                    MainSectionCardTypes.HERO -> {
                         HomeSection(
                             modifier = itemParentModifier,
                             homeCarouselList = mainSection[index].sectionHero?.carouselImages,
@@ -49,7 +50,7 @@ fun MainScreenWeb(
 
                     }
 
-                    "section_gallery" -> {
+                    MainSectionCardTypes.GALLERY -> {
                         GallerySection(
                             modifier = itemParentModifier,
                             headerTextSize = 50,
@@ -61,7 +62,7 @@ fun MainScreenWeb(
                         )
                     }
 
-                    "section_aboutme" -> {
+                    MainSectionCardTypes.ABOUT_ME -> {
                         AboutSection(
                             modifier = modifier
                                 .fillMaxWidth(),
@@ -69,7 +70,7 @@ fun MainScreenWeb(
                         )
                     }
 
-                    "section_contact" -> {
+                    MainSectionCardTypes.CONTACT -> {
                         ContactSection(
                             headerTextSize = 110,
                             isSpacingRequired = true,
