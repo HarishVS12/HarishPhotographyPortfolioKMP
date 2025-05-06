@@ -6,7 +6,6 @@ import kotlinx.coroutines.flow.flow
 
 class KtorRemoteMainDataSource() : RemoteMainDataSource {
 
-
     override fun getMainResponse(): Flow<MainResponseDTO> {
         return flow { }
     }

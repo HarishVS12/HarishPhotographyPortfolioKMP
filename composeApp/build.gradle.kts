@@ -58,6 +58,10 @@ kotlin {
 
     sourceSets {
 
+        wasmJsMain.dependencies {
+            implementation(libs.ktor.client.js)
+        }
+
         jsMain.dependencies {
             implementation(libs.web.core.js)
             implementation(libs.kotlinx.html.js)
