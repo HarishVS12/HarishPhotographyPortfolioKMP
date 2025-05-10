@@ -10,7 +10,7 @@ class KtorRemoteMainDataSource(
 ) : RemoteMainDataSource {
 
     override suspend fun getMainResponse(): MainResponseDTO {
-        return httpClient.get("https://run.mocky.io/v3/01504055-a274-4b64-861e-4918cc30efc9") {}
+        return httpClient.get("https://harishphotofoliobackend.onrender.com/api/main") {}
             .body<MainResponseDTO>()
     }
 }
