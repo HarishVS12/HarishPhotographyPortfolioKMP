@@ -50,4 +50,32 @@ jobs:
         with:
           name: harishPhotoFolio.apk
           path: composeApp/build/outputs/apk/debug/composeApp-debug.apk
+
+  build-and-deploy:
+    needs: [lint]
+    name: Deploy website to github pages
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v4
+
+      - name: Set up JDK
+        uses: actions/setup-java@v4
+        with:
+          distribution: 'temurin'
+          java-version: 17
+
+      - name: Make gradlew executable
+        run: chmod +x ./gradlew
+
+      - name: Build WASM Distribution
+        run: ./gradlew wasmJsBrowserDistribution
+
+      - name: Deploy to GitHub Pages
+        uses: peaceiris/actions-gh-pages@v3
+        with:
+          github_token: ${{ secrets.GITHUB_TOKEN }}
+          publish_dir: build/dist/wasmJs/productionExecutable
+
   
