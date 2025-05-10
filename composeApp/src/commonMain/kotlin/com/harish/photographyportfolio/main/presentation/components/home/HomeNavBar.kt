@@ -30,7 +30,7 @@ fun HomeNavBar(modifier: Modifier = Modifier, showNavTopBar: Boolean) {
             .padding(top = 16.dp, end = 16.dp)
     ) {
         Text(
-            text = "You know who da deiiiii",
+            text = "Harish",
             style = MaterialTheme.typography.h4,
             modifier = Modifier
                 .padding(start = 24.dp, top = 16.dp)
