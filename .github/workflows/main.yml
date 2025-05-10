@@ -11,56 +11,64 @@ on:
   #Allows you to run this workflow manually from the Github Actions tab
   workflow_dispatch:
 
+permissions:
+      contents: read
+      pages: write
+      id-token: write
+
+concurrency:
+      group: "pages"
+      cancel-in-progress: true
+
+
 #A workflow run is made up of one or more jobs that can run sequentially or in parallel
 jobs:
-  lint:
-    runs-on: ubuntu-latest
-    steps:
-      - name: Checkout the code
-        uses: actions/checkout@v4
+#  lint:
+#    runs-on: ubuntu-latest
+#    steps:
+#      - name: Checkout the code
+#        uses: actions/checkout@v4
+#
+#      - name: Run Lint
+#        run: ./gradlew lintDebug
+#
+#      - name: Upload html test report
+#        uses: actions/upload-artifact@v4
+#        with:
+#          name: index.html
+#          path: composeApp/build/reports/lint-results-debug.html
+#
+#  packaging:
+#    needs: [lint]
+#    name: Generate APK
+#    runs-on: ubuntu-latest
+#    steps:
+#      - name: Checkout the code
+#        uses: actions/checkout@v4
+#
+#      - name: set up JDK 17
+#        uses: actions/setup-java@v4
+#        with:
+#          distribution: 'temurin'
+#          java-version: 17
+#
+#      - name: Build debug APK
+#        run: ./gradlew assembleDebug
+#
+#      - name: Upload APK
+#        uses: actions/upload-artifact@v4
+#        with:
+#          name: harishPhotoFolio.apk
+#          path: composeApp/build/outputs/apk/debug/composeApp-debug.apk
 
-      - name: Run Lint
-        run: ./gradlew lintDebug
-
-      - name: Upload html test report
-        uses: actions/upload-artifact@v4
-        with:
-          name: index.html
-          path: composeApp/build/reports/lint-results-debug.html
-
-  packaging:
-    needs: [lint]
-    name: Generate APK
-    runs-on: ubuntu-latest
-    steps:
-      - name: Checkout the code
-        uses: actions/checkout@v4
-
-      - name: set up JDK 17
-        uses: actions/setup-java@v4
-        with:
-          distribution: 'temurin'
-          java-version: 17
-
-      - name: Build debug APK
-        run: ./gradlew assembleDebug
-
-      - name: Upload APK
-        uses: actions/upload-artifact@v4
-        with:
-          name: harishPhotoFolio.apk
-          path: composeApp/build/outputs/apk/debug/composeApp-debug.apk
-
-  build-and-deploy:
-    needs: [lint]
-    name: Deploy website to github pages
+  build:
     runs-on: ubuntu-latest
 
     steps:
-      - name: Checkout code
+      - name: Checkout repository
         uses: actions/checkout@v4
 
-      - name: Set up JDK
+      - name: Set up Java
         uses: actions/setup-java@v4
         with:
           distribution: 'temurin'
@@ -69,13 +77,22 @@ jobs:
       - name: Make gradlew executable
         run: chmod +x ./gradlew
 
-      - name: Build WASM Distribution
+      - name: Build WASM site
         run: ./gradlew wasmJsBrowserDistribution
 
-      - name: Deploy to GitHub Pages
-        uses: peaceiris/actions-gh-pages@v3
+      - name: Upload artifact for Pages
+        uses: actions/upload-pages-artifact@v3
         with:
-          github_token: ${{ secrets.GITHUB_TOKEN }}
-          publish_dir: build/dist/wasmJs/productionExecutable
+          path: build/dist/wasmJs/productionExecutable
 
+  deploy:
+    needs: build
+    runs-on: ubuntu-latest
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
+    steps:
+      - name: Deploy to GitHub Pages
+        id: deployment
+        uses: actions/deploy-pages@v4
   
